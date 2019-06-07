@@ -37,7 +37,7 @@ Additionally, you may specify similar properties in a .bpmn-file, either via xml
 or via extension properties in the camunda modeler:
 
 <tr>
-  <td><img src="src/main/resources/images/PropertiesInModeler.PNG" width="400"></td>
+  <td><img src="src/main/resources/images/PropertiesInModeler.png" width="400"></td>
 </tr>
 
 Properties that are set this way only apply to processes of the model they were defined in and always overwrite the enginewide configuration. If no configuration is done to an object type on process model level, the HistoryLevel falls back to the enginewide configuration.
@@ -47,7 +47,7 @@ The CustomHistoryPlugin and the ProcessModelHistoryConfigurationParsePlugin exte
 The CustomHistoryPlugin introduces the CustomHistoryLevel to the engine, which checks against the configuration whenever a HistoryEvent may possibly be produced. The HistoryLevel acts as a filter not for HistoryEvents, but for the calling of a HistoryEventProducer:
 
 <tr>
-  <td><img src="src/main/resources/images/HistoryEventProducedPosition.PNG" width="800"></td>
+  <td><img src="src/main/resources/images/HistoryEventProducedPosition.png" width="800"></td>
 </tr>
 
 If CustomHistoryLevel.isHistoryEventProduced() returns false, the HistoryEventProducer is not invoked an no HistoryEvent is even handled by the HistoryEventHandler.
@@ -55,14 +55,14 @@ If CustomHistoryLevel.isHistoryEventProduced() returns false, the HistoryEventPr
 The CustomHistoryLevel relies on two configurations: the enginewide EngineHistoryConfiguration, and the process specific ProcessHistoryConfiguration. If an entity would create a HistoryEvent based on an entity, the HistoryLevel checks those configurations, with the ProcessHistoryConfiguration having priority:
 
 <tr>
-  <td><img src="src/main/resources/images/SequenceConfigurationAppliance.PNG" width="800"></td>
+  <td><img src="src/main/resources/images/SequenceConfigurationAppliance.png" width="800"></td>
 </tr>
 
 
 Since the process definitions can only be identified by the process definition id, which is set upon deployment, but the history configuration properties need to be extracted upon parsing, the ProcessModelHistoryConfigurationParsePlugin registers two components: the ProcessModelHistoryConfigurationParseListener reads the properties upon parsing and deposits them with the process definition key, the ProcessModelHistoryConfigurationDefinitionIdMatcher the matches this key with the generated id upon deployment:
 
 <tr>
-  <td><img src="src/main/resources/images/SequenceConfigurationBuilding.PNG" width="1000"></td>
+  <td><img src="src/main/resources/images/SequenceConfigurationBuilding.png" width="1000"></td>
 </tr>
 
 
