@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_04c33qv" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="2.2.4">
+  <cmmn:case id="test-case-model" name="Test Case Model">
+    <cmmn:casePlanModel id="test-case-model_1" name="Test Case Model 1">
+      <cmmn:planItem id="ProcessTask1" name="Process Task" definitionRef="ProcessTask_1a5z5px" />
+      <cmmn:planItem id="HumanTask1" name="Human Task" definitionRef="HumanTask_156xd62" />
+      <cmmn:processTask id="ProcessTask_1a5z5px" processRef="simple-test-process" />
+      <cmmn:humanTask id="HumanTask_156xd62" name="Human Task 1" />
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="simple-test-case-model" name="Simple Test Case Model">
+      <cmmndi:Size width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_1" cmmnElementRef="test-case-model_1">
+        <dc:Bounds x="389" y="108" width="372" height="246" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0jvye3n_di" cmmnElementRef="ProcessTask1">
+        <dc:Bounds x="425" y="141" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1krrs2c_di" cmmnElementRef="HumanTask1">
+        <dc:Bounds x="572" y="141" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>
