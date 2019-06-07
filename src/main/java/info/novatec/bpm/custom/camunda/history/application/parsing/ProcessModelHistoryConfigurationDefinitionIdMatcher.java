@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 import info.novatec.bpm.custom.camunda.history.application.configurations.ProcessHistoryConfiguration;
 
 /**
- * Matcher that Replaces initial process definition ids in a {@link ProcessHistoryConfiguration}-object with
- * actual deployment-ids upon process deployment.
+ * Matcher that Replaces initial process definition ids in a {@link ProcessHistoryConfiguration}-object with actual
+ * deployment-ids upon process deployment.
  * 
  * @author Ben Fuernrohr
  */
@@ -22,8 +22,6 @@ public class ProcessModelHistoryConfigurationDefinitionIdMatcher implements Depl
 
     @Autowired
     private ProcessHistoryConfiguration processHistoryConfiguration;
-
-    // TODO: clean up definitionKey stumps in config
 
     @SuppressWarnings("unchecked")
     @Override

@@ -54,7 +54,7 @@ public class CustomHistoryLevel implements HistoryLevel {
         } else {
             // check for process-definition specific configuration
             String processDefinitionId = this.getProcessDefinitionId(entity);
-            if (this.processHistoryConfiguration.isConfigurationSetForProcessDefinition(processDefinitionId,
+            if (this.processHistoryConfiguration.isConfigurationSetForProcessDefinitionId(processDefinitionId,
                 eventType.getEntityType())) {
                 return this.processHistoryConfiguration.getConfigurationForProcessDefinitionIdAndEntityKey(
                     processDefinitionId,

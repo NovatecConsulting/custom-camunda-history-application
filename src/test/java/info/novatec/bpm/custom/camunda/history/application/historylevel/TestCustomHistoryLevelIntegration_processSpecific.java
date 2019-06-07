@@ -53,7 +53,7 @@ public class TestCustomHistoryLevelIntegration_processSpecific extends AbsTestCu
         given(this.engineHistoryArchiveConfigurationMock.getConfigurationForKey(Mockito.anyString()))
             .willReturn(false);
         // mock behavior for every model to have specific configuration for all object types
-        given(this.processHistoryArchiveConfiguration.isConfigurationSetForProcessDefinition(Mockito.anyString(),
+        given(this.processHistoryArchiveConfiguration.isConfigurationSetForProcessDefinitionId(Mockito.anyString(),
             Mockito.anyString()))
                 .willReturn(true);
 

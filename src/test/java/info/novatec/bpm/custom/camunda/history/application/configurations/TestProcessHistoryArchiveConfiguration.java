@@ -31,17 +31,17 @@ public class TestProcessHistoryArchiveConfiguration {
             true);
 
         assertTrue(
-            this.processHistoryConfiguration.isConfigurationSetForProcessDefinition("myProcessDefinition",
+            this.processHistoryConfiguration.isConfigurationSetForProcessDefinitionId("myProcessDefinition",
                 "process-instance"));
         assertTrue(
-            this.processHistoryConfiguration.isConfigurationSetForProcessDefinition("myProcessDefinition",
+            this.processHistoryConfiguration.isConfigurationSetForProcessDefinitionId("myProcessDefinition",
                 "variable-instance"));
         assertTrue(
             this.processHistoryConfiguration
-                .isConfigurationSetForProcessDefinition("mySecondProcessDefinition", "process-instance"));
+                .isConfigurationSetForProcessDefinitionId("mySecondProcessDefinition", "process-instance"));
         assertTrue(
             this.processHistoryConfiguration
-                .isConfigurationSetForProcessDefinition("mySecondProcessDefinition", "variable-instance"));
+                .isConfigurationSetForProcessDefinitionId("mySecondProcessDefinition", "variable-instance"));
 
         assertTrue(this.processHistoryConfiguration.getConfigurationForProcessDefinitionIdAndEntityKey(
             "myProcessDefinition",
@@ -68,7 +68,7 @@ public class TestProcessHistoryArchiveConfiguration {
             false);
 
         assertFalse(
-            this.processHistoryConfiguration.isConfigurationSetForProcessDefinition("myOtherProcessDefinition",
+            this.processHistoryConfiguration.isConfigurationSetForProcessDefinitionId("myOtherProcessDefinition",
                 "process-instance"));
         assertEquals(null,
             this.processHistoryConfiguration.getConfigurationForProcessDefinitionIdAndEntityKey(
@@ -89,7 +89,7 @@ public class TestProcessHistoryArchiveConfiguration {
             false);
 
         assertTrue(
-            this.processHistoryConfiguration.isConfigurationSetForProcessDefinition("myProcessDefinition",
+            this.processHistoryConfiguration.isConfigurationSetForProcessDefinitionId("myProcessDefinition",
                 "process-instance"));
 
         assertTrue(
@@ -108,7 +108,7 @@ public class TestProcessHistoryArchiveConfiguration {
             true);
 
         assertTrue(
-            this.processHistoryConfiguration.isConfigurationSetForProcessDefinition("myProcessDefinition",
+            this.processHistoryConfiguration.isConfigurationSetForProcessDefinitionId("myProcessDefinition",
                 "process-instance"));
 
         assertFalse(

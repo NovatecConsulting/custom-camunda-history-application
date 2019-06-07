@@ -49,7 +49,7 @@ public class TestCustomHistoryLevelIntegration_enginewide extends AbsTestCustomH
     @Before
     public void setUp() {
         // mock behavior for no process definition specific configuration whatsoever
-        given(this.processHistoryArchiveConfiguration.isConfigurationSetForProcessDefinition(Mockito.anyString(),
+        given(this.processHistoryArchiveConfiguration.isConfigurationSetForProcessDefinitionId(Mockito.anyString(),
             Mockito.anyString()))
                 .willReturn(false);
 

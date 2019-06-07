@@ -14,5 +14,3 @@ public class HistoryApplication {
         SpringApplication.run(HistoryApplication.class, args);
     }
 }
-
-// TODO: refactor namespace

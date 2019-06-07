@@ -75,7 +75,7 @@ public class ProcessHistoryConfiguration {
      *            the entity type for which the configuration is requested.
      * @return {@link true} if a history-configuration has been set. Otherwise, {@link false}.
      */
-    public boolean isConfigurationSetForProcessDefinition(String processDefinitionId, String entityKey) {
+    public boolean isConfigurationSetForProcessDefinitionId(String processDefinitionId, String entityKey) {
         Map<String, Boolean> processDefinitionMap = this.processConfigurationMap.get(processDefinitionId);
         if (processDefinitionMap == null)
             return false;
