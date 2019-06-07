@@ -37,7 +37,7 @@ Additionally, you may specify similar properties in a .bpmn-file, either via xml
 or via extension properties in the camunda modeler:
 
 <tr>
-  <td><img src="src/main/resources/images/PropertiesInModeler.png" width="400"></td>
+  <td><img src="src/main/resources/images/PropertiesInModeler.PNG" width="400"></td>
 </tr>
 
 Properties that are set this way only apply to processes of the model they were defined in and always overwrite the enginewide configuration. If no configuration is done to an object type on process model level, the HistoryLevel falls back to the enginewide configuration.
