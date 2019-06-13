@@ -10,7 +10,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import info.novatec.bpm.custom.camunda.history.application.HistoryApplication;
-import info.novatec.bpm.custom.camunda.history.application.configurations.EngineHistoryConfiguration;
 
 /**
  * Testclass for {@link EngineHistoryConfiguration}. Tests for proper property-reading from given a application.yaml
@@ -30,7 +29,7 @@ public class TestHistoryArchiveConfiguration_inContext {
     @Test
     public void property_map_should_return_values_on_keys_according_to_configuration() {
         assertEquals(false, this.engineHistoryConfiguration.getConfigurationForKey("process-instance"));
-        assertEquals(true, this.engineHistoryConfiguration.getConfigurationForKey("activity-instance"));
+        assertEquals(false, this.engineHistoryConfiguration.getConfigurationForKey("activity-instance"));
         assertEquals(true, this.engineHistoryConfiguration.getConfigurationForKey("task-instance"));
         assertEquals(false, this.engineHistoryConfiguration.getConfigurationForKey("variable-instance"));
         assertEquals(true, this.engineHistoryConfiguration.getConfigurationForKey("incident"));
