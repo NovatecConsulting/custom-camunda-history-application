@@ -16,7 +16,7 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="StartEvent" targetRef="ServiceTask" />
     <bpmn:sequenceFlow id="SequenceFlow_18o7zqy" sourceRef="ServiceTask" targetRef="EndEvent" />
-    <bpmn:serviceTask id="ServiceTask" name="Service Task" camunda:class="org.camunda.examples.custom.history.implementation.delegates.ServiceTaskDelegate">
+    <bpmn:serviceTask id="ServiceTask" name="Service Task" camunda:class="info.novatec.bpm.custom.camunda.history.application.delegates.ServiceTaskDelegate">
       <bpmn:incoming>SequenceFlow1</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_18o7zqy</bpmn:outgoing>
     </bpmn:serviceTask>

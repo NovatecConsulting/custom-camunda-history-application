@@ -29,7 +29,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import info.novatec.bpm.custom.camunda.history.application.HistoryApplication;
 import info.novatec.bpm.custom.camunda.history.application.configurations.EngineHistoryConfiguration;
 import info.novatec.bpm.custom.camunda.history.application.configurations.ProcessHistoryConfiguration;
-import info.novatec.bpm.custom.camunda.history.application.historylevel.CustomHistoryLevelPlugin;
 
 /**
  * Test for {@link CustomHistoryLevelPlugin} on correct behavior on process specific configuration.
@@ -56,9 +55,14 @@ public class TestCustomHistoryLevelIntegration_processSpecific extends AbsTestCu
         given(this.processHistoryArchiveConfiguration.isConfigurationSetForProcessDefinitionId(Mockito.anyString(),
             Mockito.anyString()))
                 .willReturn(true);
+        // mock default behavior: every process model specific configuration set to false
+        given(this.processHistoryArchiveConfiguration.getConfigurationForProcessDefinitionIdAndEntityKey(
+            Mockito.anyString(),
+            Mockito.anyString())).willReturn(false);
 
         // clean up history
         List<HistoricProcessInstance> historicProcessInstances = historyService.createHistoricProcessInstanceQuery()
+            .completed()
             .list();
         if (!historicProcessInstances.isEmpty()) {
             this.historyService.deleteHistoricProcessInstancesBulk(historicProcessInstances
@@ -97,17 +101,17 @@ public class TestCustomHistoryLevelIntegration_processSpecific extends AbsTestCu
             deploymentTestProcessDefinitionId, "activity-instance")).willReturn(false);
         this.runtimeService.startProcessInstanceById(deploymentTestProcessDefinitionId);
 
-        List<HistoricActivityInstance> taskInstances = this.historyService.createHistoricActivityInstanceQuery()
+        List<HistoricActivityInstance> activityInstances = this.historyService.createHistoricActivityInstanceQuery()
             .list();
-        assertEquals(0, taskInstances.size());
+        assertEquals(0, activityInstances.size());
 
         given(this.processHistoryArchiveConfiguration.getConfigurationForProcessDefinitionIdAndEntityKey(
             deploymentTestProcessDefinitionId, "activity-instance")).willReturn(true);
         this.runtimeService.startProcessInstanceById(deploymentTestProcessDefinitionId);
 
-        taskInstances = this.historyService.createHistoricActivityInstanceQuery()
+        activityInstances = this.historyService.createHistoricActivityInstanceQuery()
             .list();
-        assertEquals(3, taskInstances.size());
+        assertEquals(3, activityInstances.size());
         Mockito.verifyZeroInteractions(this.engineHistoryArchiveConfigurationMock);
     }
 

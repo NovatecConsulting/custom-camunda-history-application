@@ -28,7 +28,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import info.novatec.bpm.custom.camunda.history.application.HistoryApplication;
 import info.novatec.bpm.custom.camunda.history.application.configurations.EngineHistoryConfiguration;
 import info.novatec.bpm.custom.camunda.history.application.configurations.ProcessHistoryConfiguration;
-import info.novatec.bpm.custom.camunda.history.application.historylevel.CustomHistoryLevel;
 
 /**
  * Integrationtest for {@link CustomHistoryLevel} on correct behavior for enginewide configuration.
@@ -53,8 +52,12 @@ public class TestCustomHistoryLevelIntegration_enginewide extends AbsTestCustomH
             Mockito.anyString()))
                 .willReturn(false);
 
+        // mock behavior for all enginewide configurations to be set to false 
+        given(this.engineHistoryArchiveConfigurationMock.getConfigurationForKey(Mockito.anyString())).willReturn(false);
+
         // clean up history
         List<HistoricProcessInstance> historicProcessInstances = historyService.createHistoricProcessInstanceQuery()
+            .completed()
             .list();
         if (!historicProcessInstances.isEmpty()) {
             this.historyService.deleteHistoricProcessInstancesBulk(historicProcessInstances

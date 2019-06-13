@@ -12,7 +12,7 @@ spring.datasource:
 history:
   configuration:
     process-instance: false 
-    activity-instance: true
+    activity-instance: false
     task-instance: true
     variable-instance: false
     incident: true
