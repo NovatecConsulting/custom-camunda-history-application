@@ -3,11 +3,14 @@ package info.novatec.bpm.custom.camunda.history.application;
 import org.camunda.bpm.spring.boot.starter.annotation.EnableProcessApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * Test-Application for integration testing.
+ * 
+ * @author Ben Fuernrohr
+ */
 @SpringBootApplication
-@EnableProcessApplication("custom-history-implementation")
-@ComponentScan
+@EnableProcessApplication
 public class HistoryApplication {
 
     public static void main(String... args) {
